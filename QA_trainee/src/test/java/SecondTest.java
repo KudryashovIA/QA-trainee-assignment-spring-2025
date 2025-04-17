@@ -25,19 +25,28 @@ public class SecondTest {
 
     @Test
     public void gameCardCountShouldBe10() {
-        // Открываем сайт
-        driver.get("https://makarovartem.github.io/frontend-avito-tech-test-assignment/");
+        // Локаторы
+        By gameCardSelector = By.cssSelector("li.ant-list-item");
 
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("li.ant-list-item")));
-        // Ищем только li-элементы с классом ant-list-item (это и есть карточки)
-        var gameCards = driver.findElements(By.cssSelector("li.ant-list-item"));
+        try {
+            // 1. Открываем сайт
+            driver.get("https://makarovartem.github.io/frontend-avito-tech-test-assignment/");
 
-        // Выводим количество карточек в консоль
-        System.out.println("Количество карточек: " + gameCards.size());
+            // 2. Ожидаем загрузку карточек
+            wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(gameCardSelector, 5));
+            var gameCards = driver.findElements(gameCardSelector);
 
-        // Проверяем, что их 10
-        Assert.assertEquals("Ожидалось 10 карточек на странице", 10, gameCards.size());
+            // 3. Проверка количества карточек
+            System.out.println("Количество карточек: " + gameCards.size());
+            Assert.assertEquals("Ожидалось 10 карточек на странице", 10, gameCards.size());
+
+        } catch (TimeoutException e) {
+            Assert.fail("Карточки не загрузились вовремя: " + e.getMessage());
+        } catch (Exception e) {
+            Assert.fail("Ошибка при выполнении теста: " + e.getMessage());
+        }
     }
+
     @Test
     public void gameCardCountShouldBe20() {
         // Локаторы
