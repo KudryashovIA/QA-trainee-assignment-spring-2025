@@ -1,0 +1,141 @@
+import org.junit.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+
+public class SecondTest {
+    private static WebDriver driver;
+    private static WebDriverWait wait;
+    @BeforeClass
+    public static void setUp() {
+        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        driver.manage().window().maximize();
+    }
+    @AfterClass
+    public static void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+    // поменять название
+
+    @Test
+    public void gameCardCountShouldBe10() {
+        // Открываем сайт
+        driver.get("https://makarovartem.github.io/frontend-avito-tech-test-assignment/");
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("li.ant-list-item")));
+        // Ищем только li-элементы с классом ant-list-item (это и есть карточки)
+        var gameCards = driver.findElements(By.cssSelector("li.ant-list-item"));
+
+        // Выводим количество карточек в консоль
+        System.out.println("Количество карточек: " + gameCards.size());
+
+        // Проверяем, что их 10
+        Assert.assertEquals("Ожидалось 10 карточек на странице", 10, gameCards.size());
+    }
+    @Test
+    public void gameCardCountShouldBe20() {
+        // Локаторы
+        By pageSizeSelector = By.cssSelector(".ant-select-selection-item[title='10 / page']");
+        By option20Selector = By.cssSelector("div#rc_select_3_list_1[title='20 / page']");
+        By gameCardSelector = By.cssSelector("li.ant-list-item");
+
+        try {
+            // 1. Открываем сайт
+            driver.get("https://makarovartem.github.io/frontend-avito-tech-test-assignment/");
+
+            // 2. Открываем выпадающий список с количеством карточек
+            WebElement pageSizeDropdown = wait.until(ExpectedConditions.elementToBeClickable(pageSizeSelector));
+            pageSizeDropdown.click();
+
+            // 3. Выбираем опцию "20 / page"
+            WebElement option20 = wait.until(ExpectedConditions.elementToBeClickable(option20Selector));
+            option20.click();
+
+            // 4. Ожидаем загрузки карточек
+            wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(gameCardSelector, 11));
+            var gameCards = driver.findElements(gameCardSelector);
+
+            // 5. Проверка количества карточек
+            System.out.println("Количество карточек: " + gameCards.size());
+            Assert.assertEquals("Ожидалось 20 карточек на странице", 20, gameCards.size());
+
+        } catch (TimeoutException e) {
+            Assert.fail("Карточки не загрузились вовремя: " + e.getMessage());
+        } catch (Exception e) {
+            Assert.fail("Ошибка при выполнении теста: " + e.getMessage());
+        }
+    }
+    @Test
+    public void gameCardCountShouldBe50() {
+        // Локаторы
+        By pageSizeSelector = By.cssSelector(".ant-select-selection-item[title='10 / page']");
+        By option50Selector = By.cssSelector("div#rc_select_3_list_2[title='50 / page']");
+        By gameCardSelector = By.cssSelector("li.ant-list-item");
+
+        try {
+            // 1. Открываем сайт
+            driver.get("https://makarovartem.github.io/frontend-avito-tech-test-assignment/");
+
+            // 2. Открываем выпадающий список с количеством карточек
+            WebElement pageSizeDropdown = wait.until(ExpectedConditions.elementToBeClickable(pageSizeSelector));
+            pageSizeDropdown.click();
+
+            // 3. Выбираем опцию "50 / page"
+            WebElement option50 = wait.until(ExpectedConditions.elementToBeClickable(option50Selector));
+            option50.click();
+
+            // 4. Ожидаем загрузки карточек
+            wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(gameCardSelector, 21));
+            var gameCards = driver.findElements(gameCardSelector);
+
+            // 5. Проверка количества карточек
+            System.out.println("Количество карточек: " + gameCards.size());
+            Assert.assertEquals("Ожидалось 50 карточек на странице", 50, gameCards.size());
+
+        } catch (TimeoutException e) {
+            Assert.fail("Карточки не загрузились вовремя: " + e.getMessage());
+        } catch (Exception e) {
+            Assert.fail("Ошибка при выполнении теста: " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void gameCardCountShouldBe100() {
+        // Локаторы
+        By pageSizeSelector = By.cssSelector(".ant-select-selection-item[title='10 / page']");
+        By option100Selector = By.cssSelector("div#rc_select_3_list_3[title='100 / page']");
+        By gameCardSelector = By.cssSelector("li.ant-list-item");
+
+        try {
+            // 1. Открываем сайт
+            driver.get("https://makarovartem.github.io/frontend-avito-tech-test-assignment/");
+
+            // 2. Открываем выпадающий список с количеством карточек
+            WebElement pageSizeDropdown = wait.until(ExpectedConditions.elementToBeClickable(pageSizeSelector));
+            pageSizeDropdown.click();
+
+            // 3. Выбираем опцию "100 / page"
+            WebElement option100 = wait.until(ExpectedConditions.elementToBeClickable(option100Selector));
+            option100.click();
+
+            // 4. Ожидаем загрузки карточек
+            wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(gameCardSelector, 51));
+            var gameCards = driver.findElements(gameCardSelector);
+
+            // 5. Проверка количества карточек
+            System.out.println("Количество карточек: " + gameCards.size());
+            Assert.assertEquals("Ожидалось 100 карточек на странице", 100, gameCards.size());
+
+        } catch (TimeoutException e) {
+            Assert.fail("Карточки не загрузились вовремя: " + e.getMessage());
+        } catch (Exception e) {
+            Assert.fail("Ошибка при выполнении теста: " + e.getMessage());
+        }
+    }
+}
