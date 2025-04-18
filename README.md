@@ -49,7 +49,7 @@
 
 ##  Шаг 1. Установите Java JDK
 
-1. Перейдите на официальный сайт: [https://adoptium.net/](https://adoptium.net/)
+1. Перейдите на официальный сайт: [https://adoptium.net/temurin/releases/?version=17](https://adoptium.net/temurin/releases/?version=17)
 2. Скачайте и установите **Temurin 17 (LTS)**.
 3. После установки, откройте терминал/командную строку и проверьте установку:
 
