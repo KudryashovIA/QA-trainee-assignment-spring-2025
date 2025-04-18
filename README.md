@@ -68,7 +68,7 @@ openjdk version "17.x.x" 202x-xx-xx
 ## Шаг 2. Установите Apache Maven
 
 1. Скачайте последнюю версию Maven: [https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi)
-2. Распакуйте архив (например, в `C:\Tools\apache-maven-<version>`)
+2. Распакуйте архив (например, в `c:\Program Files\apache-maven-<version>`)
 3. Добавьте Maven в переменные среды (Windows):
    - Переменная `MAVEN_HOME` → путь до папки Maven
    - В `Path` добавьте: `%MAVEN_HOME%\bin`
