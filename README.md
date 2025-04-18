@@ -7,21 +7,15 @@
 Ссылка на задание: [QA-trainee-assignment-spring-2025](https://github.com/avito-tech/tech-internship/blob/main/Tech%20Internships/QA/QA-trainee-assignment-spring-2025/QA-trainee-assignment-spring-2025.md)
 
 # Структура проекта:
-Файл для задания 1
  - [TASK_1.md](./TASK_1.md) - решение задания 1
-
-Файлы для задания 2
- - [QA_trainee](./QA_trainee) - проект с автотестами на языке java
- - [TESTCASES.md](./TESTCASES.md) - список тест-кейсов для проверки пользовательских сценариев  
- - [BUGS.md](./BUGS.md) - список с найденными во время выполнения задания багами 
+ - [QA_trainee](./QA_trainee) - проект с автотестами на языке Java для задания 2
+ - [TESTCASES.md](./TESTCASES.md) - список тест-кейсов для проверки пользовательских сценариев для задания 2
+ - [BUGS.md](./BUGS.md) - баг-репорт задания 2
 
 ---
 ## Задание 1
 
-В данном задании нужно проанализировать скриншот страницы Авито с результатами поиска и:
-
-1. перечислить все имеющиеся баги
-2. указать их приоритет (high, medium, low)
+В данном задании нужно проанализировать скриншот страницы Авито с результатами поиска, перечислить все имеющиеся баги и указать их приоритет (high, medium, low).
 
 ## Задание 2
 
@@ -47,11 +41,15 @@
 
 ## Инструкция по запуску автотестов для задания 2 
 
-##  Шаг 1. Установите Java JDK
+##  Установите Java JDK
 
-1. Перейдите на официальный сайт: [https://adoptium.net/temurin/releases/?version=17](https://adoptium.net/temurin/releases/?version=17)
-2. Скачайте и установите **Temurin 17 (LTS)**.
-3. После установки, откройте терминал/командную строку и проверьте установку:
+1. Скачайте **Temurin 17 (LTS)** с сайта [https://adoptium.net/temurin/releases/?version=17](https://adoptium.net/temurin/releases/?version=17)
+2. Распакуйте архив (например, в `c:\Program Files\ jdk-17.<version>`).
+3. Добавьте JDK в системные переменные переменные среды (Windows):
+   - Создайте переменную `JAVA_HOME` → путь до папки JDK
+   - В `Path` добавьте: `%JAVA_HOME%\bin`
+     
+4. После установки, откройте терминал/командную строку и проверьте установку с помощью команды ниже
 
 ```bash
 java -version
@@ -65,76 +63,54 @@ openjdk version "17.x.x" 202x-xx-xx
 
 ---
 
-## Шаг 2. Установите Apache Maven
+## Установите Apache Maven
 
 1. Скачайте последнюю версию Maven: [https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi)
 2. Распакуйте архив (например, в `c:\Program Files\apache-maven-<version>`)
-3. Добавьте Maven в переменные среды (Windows):
-   - Переменная `MAVEN_HOME` → путь до папки Maven
+3. Добавьте Maven в системные переменные переменные среды (Windows):
+   - Создайте переменную `MAVEN_HOME` → путь до папки Maven
    - В `Path` добавьте: `%MAVEN_HOME%\bin`
 
-4. Проверьте установку:
+4. Проверьте установку командой, вывод должен содержать версию Maven и Java
 
 ```bash
 mvn -v
 ```
-
-Вывод должен содержать версию Maven и Java.
-
 ---
 
-## Шаг 3. Установите Google Chrome
+## Установите Google Chrome
 
 1. Скачайте и установите браузер [Google Chrome](https://www.google.com/chrome/)
 2. После установки проверьте версию браузера (Настройки → О Chrome)
 3. Скачайте соответствующий ChromeDriver:
-   - Перейдите: [https://chromedriver.chromium.org/downloads](https://chromedriver.chromium.org/downloads)
-   - Скачайте **именно ту версию**, которая совпадает с установленным Chrome
+   
+   - Перейдите по ссылке [https://chromedriver.chromium.org/downloads](https://chromedriver.chromium.org/downloads)
+   - Скачайте версию, которая совпадает с установленным Chrome
    - Поместите `chromedriver.exe` в папку `drivers` в проекте
 
 ---
 
-## Шаг 4. Клонируйте проект
+## Клонируйте проект
 
-Если у вас установлен Git:
+Если у вас установлен Git, то воспользуйтесь командами ниже. Или скачайте ZIP-архив с GitHub и распакуйте его.
 
 ```bash
 git clone https://github.com/KudryashovIA/QA-trainee-assignment-spring-2025.git
+```
+```bash
 cd QA_trainee
 ```
-
-Или скачайте ZIP-архив с GitHub, распакуйте его.
-
 ---
 
-##  Шаг 5. Убедитесь, что структура проекта такая:
+## Запустите автотесты
 
-```
-QA_trainee/
-│
-├── drivers/
-│   └── chromedriver.exe
-├── src/
-│   └── test/
-│       └── java/
-│           └── ThirdTest.java и др.
-├── pom.xml
-```
-
----
-
-## Шаг 6. Запуск автотестов
-
-В терминале, находясь в корне проекта:
+Находясь в корне проекта, напишите в терминале:
 
 ```bash
 mvn test
 ```
 
 После этого вы увидите лог выполнения тестов в терминале. Убедитесь, что браузер открывается и тесты проходят.
-
----
-Готово! Теперь вы можете запускать автотесты!
 
 
 
