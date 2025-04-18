@@ -99,7 +99,7 @@ mvn -v
 Если у вас установлен Git:
 
 ```bash
-git clone <URL на ваш репозиторий>
+git clone https://github.com/KudryashovIA/QA-trainee-assignment-spring-2025.git
 cd QA_trainee
 ```
 
