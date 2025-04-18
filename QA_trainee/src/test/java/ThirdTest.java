@@ -23,8 +23,10 @@ public class ThirdTest {
             driver.quit();
         }
     }
+
     @Test
-    public void paginationNavigationTest() {
+    public void testPaginationNavigation() {
+        System.out.printf("Тест 3: Переход по страницам результата поиска с помощью пагинации\n");
         // Локаторы
         By gameCardSelector = By.cssSelector("li.ant-list-item");
         By page2ButtonLocator = By.linkText("2");
@@ -36,46 +38,46 @@ public class ThirdTest {
 
         // Открываем сайт
         driver.get("https://makarovartem.github.io/frontend-avito-tech-test-assignment/");
-        System.out.println("[INFO] Открыт сайт");
+        System.out.println("Открыт сайт");
 
         // Убеждаемся, что первая страница загружена
-        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(gameCardSelector, 0));
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(gameCardSelector, 6));
         var firstPageCards = driver.findElements(gameCardSelector);
-        System.out.println("[INFO] Первая страница загружена, карточек: " + firstPageCards.size());
+        System.out.println("Первая страница загружена, карточек: " + firstPageCards.size());
 
         // Переход на страницу 2
         WebElement page2Button = wait.until(ExpectedConditions.elementToBeClickable(page2ButtonLocator));
         page2Button.click();
         wait.until(ExpectedConditions.textToBePresentInElementLocated(activePageLocator, "2"));
-        System.out.println("[INFO] Перешли на страницу 2");
+        System.out.println("Перешли на страницу 2");
 
         // Нажимаем "..." для перехода на следующие страницы
         WebElement nextFivePages = wait.until(ExpectedConditions.elementToBeClickable(nextFivePagesLocator));
         nextFivePages.click();
-        System.out.println("[INFO] Нажали кнопку '•••' для перехода на следующие страницы");
+        System.out.println("Нажали кнопку '...' для перехода на 5 страниц вперед");
 
         // Переход на страницу 7
         WebElement page7Button = wait.until(ExpectedConditions.elementToBeClickable(page7ButtonLocator));
         page7Button.click();
         wait.until(ExpectedConditions.textToBePresentInElementLocated(activePageLocator, "7"));
-        System.out.println("[INFO] Перешли на страницу 7");
+        System.out.println("Перешли на страницу 7");
 
         // Назад → страница 6
         WebElement prevButton = wait.until(ExpectedConditions.elementToBeClickable(prevPageButtonLocator));
         prevButton.click();
         wait.until(ExpectedConditions.textToBePresentInElementLocated(activePageLocator, "6"));
-        System.out.println("[INFO] Перешли на страницу 6 через кнопку 'Назад'");
+        System.out.println("Перешли на страницу 6 через кнопку 'Назад'");
 
         // Вперёд 2 раза → страница 8
         WebElement nextButton = wait.until(ExpectedConditions.elementToBeClickable(nextPageButtonLocator));
         nextButton.click();
         wait.until(ExpectedConditions.textToBePresentInElementLocated(activePageLocator, "7"));
-        System.out.println("[INFO] Перешли на страницу 7 через кнопку 'Вперёд'");
+        System.out.println("Перешли на страницу 7 через кнопку 'Вперёд'");
 
         nextButton = wait.until(ExpectedConditions.elementToBeClickable(nextPageButtonLocator));
         nextButton.click();
         wait.until(ExpectedConditions.textToBePresentInElementLocated(activePageLocator, "8"));
-        System.out.println("[INFO] Перешли на страницу 8 через кнопку 'Вперёд'");
+        System.out.println("Перешли на страницу 8 через кнопку 'Вперёд'");
 
         // Проверка финального состояния
         WebElement activePage = driver.findElement(activePageLocator);
