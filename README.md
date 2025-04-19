@@ -20,7 +20,7 @@
 ## Задание 2
 
 ### Условие
-На [сайте](https://makarovartem.github.io/frontend-avito-tech-test-assignment) размещён сборник игр по разным жанрам. Внутри платформы доступны функции поиска по всему каталогу, жанру и сортировка.  Также есть возможность провалиться в карточку игры.
+На [сайте](https://makarovartem.github.io/frontend-avito-tech-test-assignment) размещен сборник игр по разным жанрам. Внутри платформы доступны функции поиска по всему каталогу, жанру и сортировка.  Также есть возможность провалиться в карточку игры.
 
 ### Суть задания:
 1. Составьте тест-кейсы на пользовательские сценарии из списка ниже:
@@ -43,7 +43,7 @@
 
 ##  Установите Java JDK
 
-1. Скачайте **Temurin 17 (LTS)** с сайта [https://adoptium.net/temurin/releases/?version=17](https://adoptium.net/temurin/releases/?version=17)
+1. Скачайте Temurin 17 (LTS) с сайта [https://adoptium.net/temurin/releases/?version=17](https://adoptium.net/temurin/releases/?version=17)
 2. Распакуйте архив (например, в `c:\Program Files\ jdk-17.<version>`).
 3. Добавьте JDK в системные переменные переменные среды (Windows):
    - Создайте переменную `JAVA_HOME` → путь до папки JDK
